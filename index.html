@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101310">
+  <meta name="description" content="Tarragon Studio is an independent creative studio exploring games, film, animation, design, music, and technology.">
+  <title>Tarragon Studio — Independent Creative Studio</title>
+
+  <style>
+    :root {
+      --background: #101310;
+      --surface: #181d18;
+      --text: #f0f0e9;
+      --muted: #a4aaa0;
+      --accent: #a4b58a;
+      --line: rgba(255, 255, 255, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 88%);
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      min-height: 86px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      min-height: 590px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "T";
+      position: absolute;
+      right: 3%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: Georgia, serif;
+      font-size: clamp(260px, 42vw, 560px);
+      line-height: 1;
+      color: rgba(164, 181, 138, 0.045);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 8vw, 7rem);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      max-width: 850px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero-description {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-top: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 36px;
+      padding: 14px 24px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.85rem;
+      transition: background 0.2s, color 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .button:hover {
+      background: var(--accent);
+      color: var(--background);
+    }
+
+    section {
+      padding: 100px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      max-width: 760px;
+    }
+
+    .section-text {
+      color: var(--muted);
+      max-width: 650px;
+      margin-top: 24px;
+      font-size: 1rem;
+    }
+
+    .divisions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 48px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .division {
+      background: var(--background);
+      padding: 30px;
+      min-height: 155px;
+    }
+
+    .division-number {
+      color: var(--accent);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+    }
+
+    .division h3 {
+      margin-top: 22px;
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+
+    .project-card {
+      margin-top: 42px;
+      padding: clamp(28px, 5vw, 60px);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::after {
+      content: "1870";
+      position: absolute;
+      right: -10px;
+      bottom: -50px;
+      font-size: clamp(100px, 20vw, 220px);
+      font-weight: 700;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.035);
+      pointer-events: none;
+    }
+
+    .project-status {
+      color: var(--accent);
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .project-card h3 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin-top: 22px;
+      max-width: 650px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      max-width: 540px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-box {
+      margin-top: 32px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .contact-box p {
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        padding: 22px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+
+      .hero {
+        min-height: 500px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .divisions {
+        grid-template-columns: 1fr;
+      }
+
+      .division {
+        min-height: auto;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="#home">TARRAGON<span>.</span></a>
+
+```
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#divisions">Divisions</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</div>
+```
+
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <p class="eyebrow">Independent Creative Studio</p>
+
+```
+  <h1>Ideas into<br><span>experiences.</span></h1>
+
+  <p class="hero-description">
+    Tarragon Studio is an independent creative studio exploring the
+    intersection of games, film, animation, design, music, and technology.
+    We are building something of our own.
+  </p>
+
+  <a class="button" href="#projects">Explore Our First Project ↘</a>
+</section>
+
+<section id="about">
+  <div class="container">
+    <p class="section-label">01 / About</p>
+
+    <h2>A studio for ideas that deserve to exist.</h2>
+
+    <p class="section-text">
+      Tarragon Studio is an independent creative venture founded on
+      curiosity, imagination, and a commitment to making meaningful
+      creative work. Our ambitions span multiple disciplines, with every
+      project offering a new opportunity to learn, experiment, and build.
+    </p>
+  </div>
+</section>
+
+<section id="divisions">
+  <div class="container">
+    <p class="section-label">02 / Divisions</p>
+
+    <h2>Different disciplines.<br>One creative vision.</h2>
+
+    <div class="divisions">
+      <article class="division">
+        <span class="division-number">01</span>
+        <h3>Games & Interactive</h3>
+      </article>
+
+      <article class="division">
+        <span class="division-number">02</span>
+        <h3>Film & Animation</h3>
+      </article>
+
+      <article class="division">
+        <span class="division-number">03</span>
+        <h3>Design & Visual Arts</h3>
+      </article>
+
+      <article class="division">
+        <span class="division-number">04</span>
+        <h3>Music & Audio</h3>
+      </article>
+
+      <article class="division">
+        <span class="division-number">05</span>
+        <h3>Technology & Innovation</h3>
+      </article>
+
+      <article class="division">
+        <span class="division-number">06</span>
+        <h3>Future Experiments</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <p class="section-label">03 / Selected Projects</p>
+
+    <h2>Our first world is taking shape.</h2>
+
+    <article class="project-card">
+      <p class="project-status">Project 001 · In Development</p>
+
+      <h3>A historical strategy experience.</h3>
+
+      <p>
+        Set in the year 1870, our first game aims to explore a richly
+        grounded historical world through strategy, decisions, and
+        long-term consequences. Development is in its early stages.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <p class="section-label">04 / Contact</p>
+
+    <h2>Every great collaboration starts somewhere.</h2>
+
+    <div class="contact-box">
+      <p>
+        Tarragon Studio is in its early stages. More information and
+        official contact channels will be announced as the studio grows.
+      </p>
+    </div>
+  </div>
+</section>
+```
+
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© <span id="year"></span> Tarragon Studio. All rights reserved.</p>
+      <p>Independent by nature. Creative by design.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
